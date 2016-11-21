@@ -1,3 +1,16 @@
+--- exact-image-0.9.1/configure.orig
++++ exact-image-0.9.1/configure
+@@ -101,8 +101,8 @@
+ pkgcheck php -config PHP atleast 5.2.0 &&
+ 	PHPINCS="`php-config --includes`"
+ 
+-pkgcheck python shell PYTHON 'python -V 2>&1 | sed -n "s/Python //p"' atleast 2.5.0 &&
+-	PYTHONINCS="`python-config --includes`"
++pkgcheck python shell PYTHON 'python3 -V 2>&1 | sed -n "s/Python //p"' atleast 2.5.0 &&
++	PYTHONINCS="`python3-config --includes`"
+ 
+ pkgcheck ruby shell RUBY 'ruby --version 2>/dev/null | sed -n "s/ruby \([^ ]*\) .*/\1/p"' atleast 1.8.5 &&
+ 	RUBYINCS="-I/usr/lib64/ruby/1.8/x86_64-linux" # FIXME
 --- exact-image-0.9.1/api/python/Makefile.orig
 +++ exact-image-0.9.1/api/python/Makefile
 @@ -5,6 +5,7 @@
