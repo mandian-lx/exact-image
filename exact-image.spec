@@ -99,6 +99,9 @@ as time permits. - Hopefully a viable alternative to ImageMagick.
 export CFLAGS="$(optflags) -Wall -O2"
 export CXXFLAGS="${optflags} -Wall -O2 -Wno-sign-compare -std=c++11"
 
+# verbose
+sed -i -e "s|Q = @|#Q = @|" build/bottom.make
+
 # FIXME: swig 3.0.19 in not compatible with php7
 %configure --without-php 
 %make
