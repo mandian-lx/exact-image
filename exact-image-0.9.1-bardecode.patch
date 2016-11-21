@@ -1,0 +1,52 @@
+--- exact-image-0.9.1/bardecode/Scanner.tcc.orig
++++ exact-image-0.9.1/bardecode/Scanner.tcc
+@@ -123,7 +123,7 @@
+             }
+             if ( directions&left_right && requested(code128)) {
+                 ti =  backup_i;
+-                if (result = code128_impl.scan(ti,te,x+ti->second,y,quiet_psize)) {
++                if ((result = code128_impl.scan(ti,te,x+ti->second,y,quiet_psize))) {
+                     cur_barcode = result;
+                     vx += pixel_diff(backup_i,ti);
+                     return;
+@@ -131,7 +131,7 @@
+             } 
+             if ( directions&right_left && requested(code128)) {
+                 ti =  backup_i;
+-                if (result = code128_impl.reverse_scan(ti,te,x+ti->second,y,quiet_psize)) {
++                if ((result = code128_impl.reverse_scan(ti,te,x+ti->second,y,quiet_psize))) {
+                     cur_barcode = result;
+                     vx += pixel_diff(backup_i,ti);
+                     return;
+--- exact-image-0.9.1/bardecode/code128.hh.orig
++++ exact-image-0.9.1/bardecode/code128.hh
+@@ -236,8 +236,9 @@
+         switch (code_set) {
+         case code_set_c:
+             if (c < 100) {
+-                char str[2];
++                char str[3];
+                 sprintf(str,"%02d",c);
++                str[3] = '\0';
+                 return std::string(str);
+             } else {
+                 return std::string(1,caux[c-96]);
+--- exact-image-0.9.1/bardecode/code25i.hh.orig
++++ exact-image-0.9.1/bardecode/code25i.hh
+@@ -31,11 +31,11 @@
+         static const int END_SEQUENCE = 0xD;
+         static const char no_entry = 0;
+ 
+-        static const double n_lq = 15;
+-        static const double n_hq = 5.3;
+-        static const double w_lq = 5.2;
+-        static const double w_hq = 1.5;
+-        static const double tol = 0.2;
++        static constexpr double n_lq = 15.0f;
++        static constexpr double n_hq = 5.3f;
++        static constexpr double w_lq = 5.2f;
++        static constexpr double w_hq = 1.5f;
++        static constexpr double tol = 0.2f;
+ 
+         static const usize_t min_quiet_usize = 5;
+         //static const usize_t min_quiet_usize = 10;

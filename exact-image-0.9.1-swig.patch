@@ -1,0 +1,11 @@
+--- exact-image-0.9.1/api/api-swig.hh.orig
++++ exact-image-0.9.1/api/api-swig.hh
+@@ -22,7 +22,7 @@
+ %include "cstring.i"
+ %include "std_string.i"
+ 
+-# manually include it, otherwise SWIG will not source it
++// manually include it, otherwise SWIG will not source it
+ %include "config.h"
+ 
+ %{

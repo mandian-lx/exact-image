@@ -1,0 +1,30 @@
+--- exact-image-0.9.1/configure.orig
++++ exact-image-0.9.1/configure
+@@ -2,7 +2,7 @@
+ 
+ . config/functions
+ 
+-with_options="x11 freetype evas libjpeg libtiff libpng libungif jasper openexr expat lcms bardecode lua swig perl python php ruby"
++with_options="x11 freetype evas libjpeg libtiff libpng libgif jasper openexr expat lcms bardecode lua luajit swig perl python php ruby"
+ 
+ feature_options="evasgl tga pcx static"
+ TGA=1 # default to yes
+@@ -93,6 +93,8 @@
+ 
+ pkgcheck lua pkg-config LUA atleast 5.1
+ 
++pkgcheck luajit pkg-config LUAJIT
++
+ pkgcheck perl shell PERL 'perl -version 2>/dev/null | sed -n "s/This is perl.*v\([0-9.]*\).*built.*/\1/p"' atleast 5.8.0 &&
+ 	PERLINCS="`perl -MExtUtils::Embed -e ccopts`"
+ 
+--- exact-image-0.9.1/api/lua/Makefile.orig
++++ exact-image-0.9.1/api/lua/Makefile
+@@ -5,6 +5,7 @@
+ DEPS = $(lib_BINARY) $(bardecode_BINARY) $(codecs_BINARY) $(api_BINARY) $($(X_MODULE)_OUTPUT)/api-lua-wrap.cc
+ 
+ objdir/api/lua/CXXFLAGS := -I api $(LUAINCS) -fno-strict-aliasing
++objdir/api/lua/LDFLAGS := $(LUALIBS) $(LUAJITLIBS)
+ 
+ $($(X_MODULE)_OUTPUT)/api-lua-wrap.cc: $(X_MODULE)/../api.hh $(X_MODULE)/../api-swig.hh
+ 	$(Q)echo "  SWIG      $(dir $@)"

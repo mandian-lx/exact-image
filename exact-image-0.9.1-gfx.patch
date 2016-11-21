@@ -1,0 +1,37 @@
+--- exact-image-0.9.1/gfx/X11Helper.hh.orig
++++ exact-image-0.9.1/gfx/X11Helper.hh
+@@ -73,12 +73,12 @@
+   
+   static int Depth (Display* dpy, Window window);
+   static Visual* ColorVisual (Display* dpy, Window window);
+-
++/*
+   static Evas_Object* CaptureIntoEvasImage (Evas* evas,
+ 					    Display* dpy,
+ 					    Window window,
+ 					    int x, int y, int w, int h);
+-
++*/
+   static void CaptureIntoEvasImage (Evas_Object* ob,
+ 				    Display* dpy,
+ 				    Window window,
+--- exact-image-0.9.1/gfx/X11Helper.cc.orig
++++ exact-image-0.9.1/gfx/X11Helper.cc
+@@ -123,7 +123,7 @@
+   XGetWindowAttributes (dpy, window, &xgwa);
+   return xgwa.visual;
+ }
+-  
++/*
+ Evas_Object* X11Window::CaptureIntoEvasImage (Evas* evas,
+ 					      Display* dpy,
+ 					      Window window,
+@@ -137,7 +137,7 @@
+     
+   return ob;
+ }
+-  
++*/
+ void X11Window::CaptureIntoEvasImage (Evas_Object* ob,
+ 				      Display* dpy,
+ 				      Window window,

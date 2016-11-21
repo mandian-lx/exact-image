@@ -1,0 +1,19 @@
+--- exact-image-0.9.1/api/python/Makefile.orig
++++ exact-image-0.9.1/api/python/Makefile
+@@ -5,6 +5,7 @@
+ DEPS = $(lib_BINARY) $(bardecode_BINARY) $(codecs_BINARY) $(api_BINARY) $($(X_MODULE)_OUTPUT)/api-python-wrap.cc
+ 
+ objdir/api/python/CXXFLAGS := -I api $(PYTHONINCS)
++objdir/api/python/LDFLAGS := $(PHYTONLIBS) `pkg-config --libs python2`
+ 
+ $($(X_MODULE)_OUTPUT)/api-python-wrap.cc: $(X_MODULE)/../api.hh $(X_MODULE)/../api-swig.hh
+ 	$(Q)echo "  SWIG      $(dir $@)"
+@@ -16,7 +17,7 @@
+ include build/bottom.make
+ X_BUILD_IMPLICIT := $(_X_BUILD_IMPLICIT)
+ 
+-PYTHON_LIBDIR := $(shell python -c 'from distutils.sysconfig import get_python_lib; print get_python_lib()')
++PYTHON_LIBDIR := $(shell python -c 'from distutils.sysconfig import get_python_lib; print (get_python_lib(True))')
+ 
+ # install
+ all:: $($(X_MODULE)_BINARY)

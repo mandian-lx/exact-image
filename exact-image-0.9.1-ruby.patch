@@ -1,0 +1,10 @@
+--- exact-image-0.9.1/api/ruby/Makefile.orig
++++ exact-image-0.9.1/api/ruby/Makefile
+@@ -5,6 +5,7 @@
+ DEPS = $(lib_BINARY) $(bardecode_BINARY) $(codecs_BINARY) $(api_BINARY) $($(X_MODULE)_OUTPUT)/api-ruby-wrap.cc
+ 
+ objdir/api/ruby/CXXFLAGS := -I api $(RUBYINCS)
++objdir/api/ruby/LDFLAGS := $(RUBYLIBS) -lruby
+ 
+ $($(X_MODULE)_OUTPUT)/api-ruby-wrap.cc: $(X_MODULE)/../api.hh $(X_MODULE)/../api-swig.hh
+ 	$(Q)echo "  SWIG      $(dir $@)"

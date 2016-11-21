@@ -1,0 +1,13 @@
+--- exact-image-0.9.1/Makefile.orig
++++ exact-image-0.9.1/Makefile
+@@ -7,8 +7,8 @@
+ X_BUILD_IMPLICIT=1
+ 
+ # -s silcently corrupts binaries on OS X, sigh -ReneR
+-CFLAGS = -Wall -O2
+-CXXFLAGS = -Wall -O2 -Wno-sign-compare
++CFLAGS += -Wall -O2
++CXXFLAGS += -Wall -O2 -Wno-sign-compare
+ #CFLAGS = -Wall -O0 -ggdb
+ #CXXFLAGS = -Wall -O0 -ggdb
+ 

@@ -1,0 +1,65 @@
+--- exact-image-0.9.1/config/functions.orig
++++ exact-image-0.9.1/config/functions
+@@ -246,7 +246,7 @@
+ 		  eval WITH$(uppercase $pkg)=0
+ 		else
+ 		  echo "'$pkg' is not available!"
+-		  : $(( ++errors ))
++		  # : $(( ++errors ))
+ 		fi ;;
+ 	  --with-*)
+ 		pkg=${1/--with-}
+@@ -257,7 +257,7 @@
+ 		  eval WITH$(uppercase $pkg)=$value
+ 		else
+ 		  echo "'$pkg' is not available!"
+-		  : $(( ++errors ))
++		  # : $(( ++errors ))
+ 		fi ;;
+ 	  --enable-*)
+ 		feature=${1/--enable-}
+@@ -265,7 +265,7 @@
+ 		  eval $(uppercase $feature)=1
+ 		else
+ 		  echo "'$feature' is not available!"
+-		  : $(( ++errors ))
++		  # : $(( ++errors ))
+ 		fi ;;
+ 	  --disable-*)
+ 		feature=${1/--disable-}
+@@ -273,7 +273,7 @@
+ 		  eval $(uppercase $feature)=0
+ 		else
+ 		  echo "'$feature' is not available!"
+-		  : $(( ++errors ))
++		  # : $(( ++errors ))
+ 		fi ;;
+ 	  --*prefix=*)
+ 		prefix=${1/--}
+@@ -283,7 +283,7 @@
+ 		  eval $(undash $prefix)="$value"
+ 		else
+ 		  echo "'$prefix' is not a valid prefix specification!"
+-		  : $(( ++errors ))
++		  # : $(( ++errors ))
+ 		fi ;;
+ 	  --*dir=*)
+ 		dir=${1/--}
+@@ -294,7 +294,7 @@
+ 		  eval $(undash $dir)="$value"
+ 		else
+ 		  echo "'$dir' is not a valid directory specification!"
+-		  : $(( ++errors ))
++		  # : $(( ++errors ))
+ 		fi ;;
+ 	  --help)
+ 		usage
+@@ -302,7 +302,7 @@
+ 		;;
+ 	  *)
+ 		echo "Unable to parse $1 ..."
+-		: $(( ++errors ))
++		# : $(( ++errors ))
+ 		;;
+ 	esac
+ 	shift
