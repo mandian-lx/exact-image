@@ -100,7 +100,7 @@ export CFLAGS="$(optflags) -Wall -O2"
 export CXXFLAGS="${optflags} -Wall -O2 -Wno-sign-compare -std=c++11"
 
 # FIXME: swig 3.0.19 in not compatible with php7
-%configure --without-php
+%configure PYTHON=%{__python3} --without-php 
 %make
 
 %install
