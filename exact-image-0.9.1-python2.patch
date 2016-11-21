@@ -13,7 +13,7 @@
  X_BUILD_IMPLICIT := $(_X_BUILD_IMPLICIT)
  
 -PYTHON_LIBDIR := $(shell python -c 'from distutils.sysconfig import get_python_lib; print get_python_lib()')
-+PYTHON_LIBDIR := $(shell python -c 'from distutils.sysconfig import get_python_lib; print (get_python_lib(True))')
++PYTHON_LIBDIR := $(shell python2 -c 'from distutils.sysconfig import get_python_lib; print get_python_lib(True)')
  
  # install
  all:: $($(X_MODULE)_BINARY)
