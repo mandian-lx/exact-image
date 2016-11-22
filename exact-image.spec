@@ -110,5 +110,6 @@ sed -i -e "s|Q = @|#Q = @|" build/bottom.make
 %global optflags %{optflags} -Qunused-arguments
 export CFLAGS="$(optflags) -Wall -O2"
 export CXXFLAGS="${optflags} -Wall -O2 -Wno-sign-compare -std=c++11"
+%setup_compile_flags
 %makeinstall_std
 
