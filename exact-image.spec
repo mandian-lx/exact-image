@@ -1,3 +1,6 @@
+# FIXME: workaround for E: debuginfo-without-sources
+%define debug_package %{nil}
+
 Summary:	A fast, modern and generic image processing library
 Name:		exact-image
 Version:	0.9.1
