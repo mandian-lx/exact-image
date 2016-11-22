@@ -1,6 +1,3 @@
-%global __provides_exclude _ExactImage.so
-%global __requires_exclude ExactImage.so
-
 Summary:	A fast, modern and generic image processing library
 Name:		exact-image
 Version:	0.9.1
