@@ -62,8 +62,8 @@ as time permits. - Hopefully a viable alternative to ImageMagick.
 %{_bindir}/empty-page
 %{_bindir}/hocr2pdf
 %{_bindir}/optimize2bw
-%{py_platsitedir}/ExactImage.py
-%{py_platsitedir}/_ExactImage.so
+%{py3_platsitedir}/ExactImage.py
+%{py3_platsitedir}/_ExactImage.so
 %{perl_vendorarch}/ExactImage.pm
 %{perl_vendorarch}/ExactImage.so
 #FIXME: is there a macro for standard arch lib path for lua?
